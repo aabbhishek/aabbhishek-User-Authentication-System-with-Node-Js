@@ -1,0 +1,48 @@
+<mat-card>
+
+    <div class="example-container mat-elevation-z8">
+        <mat-table #Table [dataSource]="MyDataSource" matSort>
+
+            <!-- For source -->
+            <ng-container matColumnDef="course_name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> course_name </mat-header-cell>
+                <mat-cell *matCellDef="let post"> {{post.course_name}} </mat-cell>
+            </ng-container>
+
+            <!-- For destination -->
+            <ng-container matColumnDef="course_desc">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> course_desc </mat-header-cell>
+                <mat-cell *matCellDef="let post">
+
+                  <mat-form-field class="full-width">
+                    <textarea [id]=post._id matInput placeholder="Course Description" [value]=post.course_desc></textarea>
+                  </mat-form-field>
+
+
+                </mat-cell>
+            </ng-container>
+
+
+
+
+            <!-- For call_charge -->
+            <ng-container matColumnDef="_id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Update </mat-header-cell>
+                <mat-cell *matCellDef="let post">
+                  <button  class="btn-pos" mat-icon-button color="accent" (click)="updateRow(post._id)">
+                    <i class="fas fa-check"></i>
+                  </button>
+
+
+                 </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+
+        <!-- To paginate between pages with search -->
+        <mat-paginator #paginator [pageSize]="5" [pageSizeOptions]="[1, 5, 10, 20]">
+        </mat-paginator>
+    </div>
+</mat-card>

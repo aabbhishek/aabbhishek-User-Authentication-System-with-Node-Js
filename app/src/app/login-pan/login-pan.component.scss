@@ -1,0 +1,17 @@
+mat-card{
+  margin: auto;
+  width: 90%;
+}mat-form-field{
+  width: 100%;
+  font-size: 1.5em;
+}.login{
+  width: 100%;
+  font-size: 1.5em;
+}mat-toolbar{
+  background-color: transparent;
+  width: 100%;
+}.fill-remaining-space {
+  /* This fills the remaining space, by using flexbox.
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}

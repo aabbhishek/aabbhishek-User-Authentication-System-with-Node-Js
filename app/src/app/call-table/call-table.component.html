@@ -1,0 +1,68 @@
+<mat-card>
+
+    <div class="example-container mat-elevation-z8">
+        <mat-table #Table [dataSource]="MyDataSource" matSort>
+
+            <!-- For source -->
+            <ng-container matColumnDef="source">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Source </mat-header-cell>
+                <mat-cell *matCellDef="let post"> {{post.source}} </mat-cell>
+            </ng-container>
+
+            <!-- For destination -->
+            <ng-container matColumnDef="destination">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Destination </mat-header-cell>
+                <mat-cell *matCellDef="let post"> {{post.destination}} </mat-cell>
+            </ng-container>
+
+            <!-- For source_location -->
+            <ng-container matColumnDef="source_location">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Source Location </mat-header-cell>
+                <mat-cell *matCellDef="let post"> {{post.source_location}} </mat-cell>
+            </ng-container>
+
+            <!-- For destination_location -->
+            <ng-container matColumnDef="destination_location">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Destination Location </mat-header-cell>
+                <mat-cell *matCellDef="let post"> {{post.destination_location}} </mat-cell>
+            </ng-container>
+
+            <!-- For call_duration -->
+            <ng-container matColumnDef="call_duration">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Call Duration </mat-header-cell>
+                <mat-cell *matCellDef="let post"> {{post.call_duration}}m.</mat-cell>
+            </ng-container>
+
+            <!-- For roaming -->
+            <ng-container matColumnDef="roaming">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Roaming </mat-header-cell>
+                <mat-cell *matCellDef="let post"> {{post.roaming}} </mat-cell>
+            </ng-container>
+
+            <!-- For call_charge -->
+            <ng-container matColumnDef="call_charge">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Call Charge </mat-header-cell>
+                <mat-cell *matCellDef="let post"> ₹​ {{post.call_charge}} </mat-cell>
+            </ng-container>
+
+            <!-- For call_charge -->
+            <ng-container matColumnDef="_id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Delete </mat-header-cell>
+                <mat-cell *matCellDef="let post">
+                  <button mat-icon-button color="warn" [id]=post._id (click)="deleteRow(post._id )">
+                    <i class="fas fa-trash-alt icon-button"></i>
+                  </button>
+
+
+                 </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+
+        <!-- To paginate between pages with search -->
+        <mat-paginator #paginator [pageSize]="5" [pageSizeOptions]="[1, 5, 10, 20]">
+        </mat-paginator>
+    </div>
+</mat-card>

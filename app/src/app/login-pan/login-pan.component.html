@@ -1,0 +1,27 @@
+<mat-card >
+  <mat-card-title>
+    <mat-toolbar >
+      <span>Login</span>
+      <span class="fill-remaining-space"></span>
+      <button mat-icon-button color="accent" [matMenuTriggerFor]="appMenu">
+          <i class="fas fa-ellipsis-v"></i>
+      </button>
+
+      <mat-menu #appMenu="matMenu">
+        <button mat-menu-item routerLink="/register"> <i class="fas fa-user-plus"></i> New User</button>
+      </mat-menu>
+    </mat-toolbar>
+  </mat-card-title>
+  <mat-card-content>
+
+      <mat-form-field>
+        <input #email type="email"    matInput placeholder="E-Mail">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input #password type="Password"   matInput placeholder="Password" >
+      </mat-form-field>
+
+      <button (click)="loginUser(email.value,password.value)" mat-raised-button color="accent" class="login">Login</button>
+  </mat-card-content>
+</mat-card>
